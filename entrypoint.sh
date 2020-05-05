@@ -16,7 +16,19 @@ if [ "${GITHUB_REF}" != "refs/heads/master" ]; then
     exit 1
 fi
 
+if [ -z "${FILES_TO_MINIFY}" ]; then
+    echo "No files to minify";
+else
+    python minify.py minify "${FILES_TO_MINIFY}"
+fi
+
 firebase deploy \
     -m "${GITHUB_SHA}" \
     --project ${FIREBASE_PROJECT} \
     --only hosting
+
+if [ -z "${FILES_TO_MINIFY}" ]; then
+    echo "No files to deminify";
+else
+    python minify.py deminify "${FILES_TO_MINIFY}"
+fi
