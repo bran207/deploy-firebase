@@ -5,7 +5,7 @@ import glob
 
 def minify_file(file_path):
     url = "https://closure-compiler.appspot.com/compile"
-    original_code = open(file_path, "r").read()
+    original_code = open(file_path, "r",encoding='utf-8').read()
     
     file_name = file_path.split("/")[len(file_path.split("/"))-1]
     path = file_path.replace(file_name,"")
