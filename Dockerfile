@@ -1,4 +1,4 @@
-FROM node:10-slim
-RUN npm install -g firebase-tools
+FROM ubuntu:18.04
+RUN curl -sL https://firebase.tools | bash
 COPY entrypoint.sh /usr/local/bin
 ENTRYPOINT ["entrypoint.sh"]
