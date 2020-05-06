@@ -9,4 +9,5 @@ RUN apt-get update \
   && pip3 install --upgrade pip
 
 COPY entrypoint.sh /usr/local/bin
+COPY minify.py /usr/local/bin
 ENTRYPOINT ["entrypoint.sh"]

@@ -19,7 +19,7 @@ fi
 if [ -z "${FILES_TO_MINIFY}" ]; then
     echo "No files to minify";
 else
-    python3 minify.py minify "${FILES_TO_MINIFY}"
+    python3 /usr/local/bin/minify.py minify "${FILES_TO_MINIFY}"
 fi
 
 firebase deploy \
@@ -30,5 +30,5 @@ firebase deploy \
 if [ -z "${FILES_TO_MINIFY}" ]; then
     echo "No files to deminify";
 else
-    python3 minify.py deminify "${FILES_TO_MINIFY}"
+    python3 /usr/local/bin/minify.py deminify "${FILES_TO_MINIFY}"
 fi
