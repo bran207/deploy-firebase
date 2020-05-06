@@ -7,7 +7,11 @@ RUN apt-get update \
   && cd /usr/local/bin \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip \
-  && pip3 install requests
+  && pip3 install requests \
+  && apt-get install nodejs -y \
+  && apt-get install npm -y \
+  && npm install javascript-obfuscator@0.7.0-dev.1 \
+  && npm link javascript-obfuscator
 
 COPY entrypoint.sh /usr/local/bin
 COPY minify.py /usr/local/bin

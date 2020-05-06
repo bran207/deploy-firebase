@@ -1,4 +1,5 @@
 import requests
+import subprocess
 import sys
 import os
 import glob
@@ -21,11 +22,14 @@ def minify_file(file_path):
         "output_info": "compiled_code"
     })
     minified_code = r.text
-    
-    print(file_path)
     overwrite_f = open(file_path, "w",encoding='utf-8')
     overwrite_f.write(minified_code)
     overwrite_f.close()
+    
+    bashCmd = ["javascript-obfuscator", file_path, "--output", file_path]
+    
+    process = subprocess.Popen(bashCmd, stdout=subprocess.PIPE)
+    output, error = process.communicate()
 
 def deminify_file(file_path):
     file_name = file_path.split("/")[len(file_path.split("/"))-1]
@@ -47,7 +51,6 @@ file = "/Users/brandoncompertore/OneDrive - The Ohio State University/Programs/C
 if __name__ == "__main__":
     action = sys.argv[1].lower()
     files = sys.argv[2].split(",")
-    
     for file in files:
         if action == "minify":
             minify_file(file)
