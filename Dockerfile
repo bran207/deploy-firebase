@@ -1,6 +1,7 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 RUN apt-get update \
-  && apt install curl \
+  && apt-get install sudo -y \
+  && apt-get install curl -y \
   && curl -sL https://firebase.tools | bash \
   && apt-get install -y python3-pip python3-dev \
   && cd /usr/local/bin \
