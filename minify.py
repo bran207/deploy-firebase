@@ -10,7 +10,7 @@ def minify_file(file_path):
     file_name = file_path.split("/")[len(file_path.split("/"))-1]
     path = file_path.replace(file_name,"")
     print(path)
-    f = open(path + "original_" + file_name, "w")
+    f = open(path + "original_" + file_name, "w",encoding='utf-8')
     f.write(original_code)
     f.close()
 
@@ -23,16 +23,16 @@ def minify_file(file_path):
     minified_code = r.text
     
     print(file_path)
-    overwrite_f = open(file_path, "w")
+    overwrite_f = open(file_path, "w",encoding='utf-8')
     overwrite_f.write(minified_code)
     overwrite_f.close()
 
 def deminify_file(file_path):
     file_name = file_path.split("/")[len(file_path.split("/"))-1]
     path = file_path.replace(file_name,"")
-    original_code = open(path + "original_" + file_name, "r").read()
+    original_code = open(path + "original_" + file_name, "r",encoding='utf-8').read()
     
-    replace_original_f = open(file_path, "w")
+    replace_original_f = open(file_path, "w",encoding='utf-8')
     replace_original_f.write(original_code)
     replace_original_f.close()
     
