@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update \
+  && apt-get install apt-utils -y \
   && apt-get install sudo -y \
   && apt-get install curl -y \
   && curl -sL https://firebase.tools | bash \
@@ -10,7 +11,7 @@ RUN apt-get update \
   && pip3 install requests \
   && apt-get install nodejs -y \
   && apt-get install npm -y \
-  && npm install javascript-obfuscator@0.7.0-dev.1 \
+  && npm install javascript-obfuscator \
   && npm link javascript-obfuscator
 
 COPY entrypoint.sh /usr/local/bin
