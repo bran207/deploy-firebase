@@ -19,8 +19,8 @@ fi
 if [ -z "${FILES_TO_MINIFY}" ]; then
     echo "No files to minify";
 else
-    python3 --version
     python3 /usr/local/bin/minify.py minify "${FILES_TO_MINIFY}"
+    ls
 fi
 
 firebase deploy \
